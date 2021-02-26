@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/layout}">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Do you know holiday?</title>
+	<style type="text/css">
+	.selectCell {color: red;font-weight:bold;}
+	</style>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="container-fluid">
+			<div class="table-box" style="margin: 20px;">
+				<div id="toolbar">
+					<input type="number" id="selectedYear" th:value="${year}"/>
+					<button id="insert" onclick="changeYear()" class="btn btn-primary"> 切换</button>
+					
+					<button id="insert" onclick="saveSelected()" class="btn btn-primary">
+						<span class="glyphicon glyphicon-plus"></span> 保存
+					</button>
+				</div>
+				<!-- table -->
+				<!-- 隐藏变量 -->
+				
+				<input type="hidden" id="selectedValue" th:value="${selectedValue}"/>
+				<!-- <input type="hidden" id="selectedYear" th:value="${year}"/> -->
+				<div class="col-md-8 col-md-offset-2">
+				
+				<table id="holiday" data-row-style="grRowStyle"
+							   data-classes="table table-condensed table-hover  table-bordered"
+							   data-striped="true"></table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 模态框（Modal） -->
+</body>
+<div layout:fragment="pageJavascript" th:unless="${errorMessage}">
+	<script type="text/javascript" th:src="@{/biz/holiday.js}"></script>
+</div>
+
+
+</html>

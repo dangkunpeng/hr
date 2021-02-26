@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Index</title>
+    <style type="text/css">
+        .menuPiont {
+            width: 300px;
+            height: 200px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 48px;
+        }
+    </style>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <button type="button " class="col-md-12 btn btn-danger menuPiont" onclick="openUrl('people')">人员管理</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="col-md-12 btn btn-info menuPiont">项目管理</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="col-md-12 btn btn-warning menuPiont">费用管理</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="col-md-12 btn btn-primary menuPiont">人员统计</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="col-md-12 btn btn-primary menuPiont">项目统计</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="col-md-12 btn btn-primary menuPiont">费用统计</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框（Modal） -->
+</body>
+<div layout:fragment="pageJavascript" th:unless="${errorMessage}">
+    <script type="text/javascript" th:src="@{/hr/index.js}"></script>
+</div>
+
+
+</html>

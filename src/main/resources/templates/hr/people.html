@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>People</title>
+    <style type="text/css">
+        .selectCell {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="container-fluid">
+        <div class="table-box" style="margin: 20px;">
+            <div id="toolbar">
+                <button type="button" data-toggle="modal" data-target="#myPeople" onclick="openPeopleDetail()" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span>新增人员
+                </button>
+            </div>
+            <div class="col-md-10 col-md-offset-1">
+
+                <table id="peopleList" data-row-style="grRowStyle"
+                       data-classes="table table-condensed table-hover table-bordered"
+                       data-striped="true"></table>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myPeople" tabindex="-1" role="dialog" aria-labelledby="confirmLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="confirmLabel"> 编辑 </h4>
+                </div>
+                <div class="modal-body">
+                    <form id="peopleForm" class="form-group" action="#">
+                        <input name="peopleEid" class="form-control" placeholder="eid"/>
+                        <hr>
+                        <input name="peopleName" class="form-control" placeholder="name"/>
+                        <hr>
+                        <input name="peopleGroupEid" class="form-control" placeholder="group eid"/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="savePeople()">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!-- 模态框（Modal） -->
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myProject" tabindex="-1" role="dialog" aria-labelledby="confirmLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"> 编辑 </h4>
+                </div>
+                <div class="modal-body">
+                    <form id="projectForm" class="form-group" action="#">
+                        <input name="peopleEid" class="form-control" placeholder="eid" disabled="disabled" id="projectEid"/>
+                        <hr>
+                        <input name="projectName" class="form-control" placeholder="Project Name"/>
+                        <hr>
+                        <input name="wbsCode" class="form-control" placeholder="WBS Code"/>
+                        <hr>
+                        <input name="tePeriod" class="form-control" placeholder="TE Period"/>
+                        <hr>
+                        <input name="projectGroupEid" class="form-control" placeholder="Project Group Eid"/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveProject()">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!-- 模态框（Modal） -->
+</div>
+
+</body>
+<div layout:fragment="pageJavascript" th:unless="${errorMessage}">
+    <script type="text/javascript" th:src="@{/hr/people.js}"></script>
+</div>
+
+
+</html>

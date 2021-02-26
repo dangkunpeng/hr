@@ -1,0 +1,500 @@
+<html xmlns:th="http:/www.thymeleaf.org" xmlns:layout="http:/www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>layout</title>
+    <!-- common css -->
+    <link rel="stylesheet" th:href="@{/asserts/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/bootstrap-table.min.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/bootstrap-reset.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/font-awesome.4.6.0.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/style.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/style-responsive.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/toast.min.css}">
+</head>
+
+<body>
+<section id="container">
+    <header class="header white-bg">
+        <div class="sidebar-toggle-box">
+            <div data-placement="right" class="fa fa-bars tooltips" data-original-title="" title=""></div>
+        </div>
+        <a href="#" class="logo"> 喜鹊 <span> Admin </span> </a>
+        <!-- 全局变量 -->
+        <input id="activePage" type="hidden" th:value="${activePage}">
+        <nav class="nav notify-row" id="top_menu">
+            <ul class="nav top-menu">
+                <!-- 中间上方第1个通知 -->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-tasks"> </i>
+                        <span class="badge bg-success"> 6 </span>
+                    </a>
+                    <ul class="dropdown-menu extended tasks-bar">
+                        <li class="notify-arrow notify-arrow-blue"></li>
+                        <li>
+                            <p class="blue">You have 6 pending tasks</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">Dashboard v1.3</div>
+                                    <div class="percent">40%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-success set-40" role="progressbar"
+                                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="sr-only"> 40% Complete (success) </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">Database Update</div>
+                                    <div class="percent">60%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning set-60" role="progressbar"
+                                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="sr-only"> 60% Complete (warning) </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">Iphone Development</div>
+                                    <div class="percent">87%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-info set-87" role="progressbar"
+                                         aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="sr-only"> 87% Complete </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">Mobile App</div>
+                                    <div class="percent">33%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-danger set-33" role="progressbar"
+                                         aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="sr-only"> 33% Complete (danger) </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">Dashboard v1.3</div>
+                                    <div class="percent">45%</div>
+                                </div>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar set-45" role="progressbar" aria-valuenow="45"
+                                         aria-valuemin="0" aria-valuemax="100">
+                                        <span class="sr-only"> 45% Complete </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="external"><a href="#"> See All Tasks </a></li>
+                    </ul>
+                </li>
+                <!-- 中间上方第2个通知 -->
+                <li id="header_inbox_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-envelope-o"> </i>
+                        <span class="badge bg-important"> 5 </span>
+                    </a>
+                    <ul class="dropdown-menu extended inbox">
+                        <li class="notify-arrow notify-arrow-blue"></li>
+                        <li>
+                            <p class="blue">You have 5 new messages</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="photo"> <img alt="avatar" src="/asserts/img/avatar-mini.jpg"> </span>
+                                <span class="subject">
+										<span class="from"> Chintan Pandya </span>
+										<span class="time"> Just now </span>
+									</span>
+                                <span class="message"> Hello, this is an example msg. </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="photo"> <img alt="avatar" src="/asserts/img/avatar-mini2.jpg"></span>
+                                <span class="subject">
+										<span class="from"> Parth Jani </span>
+										<span class="time"> 10 mins </span>
+									</span>
+                                <span class="message"> Hi, Bro how are you ? </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="photo"> <img alt="avatar" src="/asserts/img/avatar-mini3.jpg"> </span>
+                                <span class="subject">
+										<span class="from"> Jay Bardolia </span>
+										<span class="time"> 3 hrs </span>
+									</span>
+                                <span class="message"> This is awesome dashboard. </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="photo"> <img alt="avatar" src="/asserts/img/avatar-mini4.jpg"> </span>
+                                <span class="subject">
+										<span class="from"> Pruthvi Bardolia </span>
+										<span class="time"> Just now </span>
+									</span>
+                                <span class="message"> Hello, this is metrolab </span>
+                            </a>
+                        </li>
+                        <li><a href="#"> See all messages </a></li>
+                    </ul>
+                </li>
+
+                <!-- 上方中间第3个通知 -->
+                <li id="header_notification_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-bell-o"> </i>
+                        <span class="badge bg-warning"> 7 </span>
+                    </a>
+                    <ul class="dropdown-menu extended notification">
+                        <li class="notify-arrow notify-arrow-blue"></li>
+                        <li>
+                            <p class="blue">You have 7 new notifications</p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-danger"> <i class="fa fa-bolt"> </i> </span>
+                                Server #3 overloaded.
+                                <span class="small italic"> 34 mins </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-warning"> <i class="fa fa-bell"> </i> </span>
+                                Server #10 not respoding.
+                                <span class="small italic"> 1 Hours </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-danger"><i class="fa fa-bolt"> </i></span>
+                                Database overloaded 24%.
+                                <span class="small italic"> 4 hrs </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-success"> <i class="fa fa-plus"> </i> </span>
+                                New user registered.
+                                <span class="small italic"> Just now </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-primary"> <i class="fa fa-bullhorn"> </i> </span>
+                                Application error.
+                                <span class="small italic"> 10 mins </span>
+                            </a>
+                        </li>
+                        <li><a href="#"> See all notifications </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 右上角用户头像 -->
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+                <!-- <li><input type="text" class="form-control search" placeholder="Search"></li> -->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" src="/asserts/img/avatar1_small.jpg">
+                        <span class="username"> Pruthvi </span>
+                        <b class="caret"> </b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <li class="log-arrow-up"></li>
+                        <li><a href="#"> <i class="fa fa-suitcase"> </i> Profile </a></li>
+                        <li><a href="#"> <i class="fa fa-cog"> </i> Settings </a></li>
+                        <li><a href="#"> <i class="fa fa-bell-o"> </i> Notification</a></li>
+                        <li><a href="#"> <i class="fa fa-key"> </i> Log Out </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </header>
+
+    <!-- 侧边导航栏 -->
+    <aside>
+        <div id="sidebar" class="nav-collapse" tabindex="5000" style="overflow: hidden; outline: none;">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="#" class="">
+                        <i class="fa fa-dashboard"></i>
+                        <span> Dashboard </span>
+                    </a>
+                </li>
+                <li class="sub-menu dcjq-parent-li">
+                    <a href="javascript:;" class="dcjq-parent">
+                        <i class="fa fa-laptop"> </i>
+                        <span>Layouts </span>
+                        <span class="label label-success span-sidebar"> 4 </span>
+                        <span class="dcjq-icon"></span>
+                    </a>
+                    <ul class="sub" style="display: none; overflow: hidden;">
+                        <li><a href="#"> Boxed Page </a></li>
+                        <li><a href="#"> Horizontal Menubar </a></li>
+                        <li><a href="#"> Language Bar </a></li>
+                        <li><a href="#" target="_blank"> Email Templates </a></li>
+                    </ul>
+                </li>
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--						<a href="javascript:;" class="dcjq-parent">-->
+                <!--							<i class="fa fa-book"> </i>-->
+                <!--							<span> UI Elements </span>-->
+                <!--							<span class="label label-info span-sidebar">7 </span>-->
+                <!--							<span class="dcjq-icon"></span>-->
+                <!--						</a>-->
+                <!--						<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--							<li><a href="#"> General </a></li>-->
+                <!--							<li><a href="#"> Buttons </a></li>-->
+                <!--							<li><a href="#"> Widget </a></li>-->
+                <!--							<li><a href="#"> Range Slider </a></li>-->
+                <!--							<li><a href="#"> Nestable List </a></li>-->
+                <!--							<li><a href="#"> Tree View List </a></li>-->
+                <!--							<li><a href="#"> Font Awesome Icon </a></li>-->
+                <!--						</ul>-->
+                <!--					</li>-->
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--						<a href="javascript:;" class="dcjq-parent">-->
+                <!--							<i class="fa fa-cogs"> </i>-->
+                <!--							<span> Components </span>-->
+                <!--							<span class="label label-primary span-sidebar"> 5 </span>-->
+                <!--							<span class="dcjq-icon"></span>-->
+                <!--						</a>-->
+                <!--						<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--							<li><a href="#"> Grids </a></li>-->
+                <!--							<li><a href="#"> Calendar </a></li>-->
+                <!--							<li><a href="#"> Gallery </a></li>-->
+                <!--							<li><a href="#"> Todo List </a></li>-->
+                <!--							<li><a href="#"> Draggable Portlets </a></li>-->
+                <!--						</ul>-->
+                <!--					</li>-->
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--						<a href="javascript:;" class="dcjq-parent">-->
+                <!--							<i class="fa fa-tasks"> </i>-->
+                <!--							<span> Form Stuff </span>-->
+                <!--							<span class="label label-info span-sidebar"> 7 </span>-->
+                <!--							<span class="dcjq-icon"></span>-->
+                <!--						</a>-->
+                <!--						<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--							<li><a href="#"> Form Components </a></li>-->
+                <!--							<li><a href="#"> Advanced Components </a></li>-->
+                <!--							<li><a href="#"> Form Wizards </a></li>-->
+                <!--							<li><a href="#"> Form Validation </a></li>-->
+                <!--							<li><a href="#"> Dropzone File Upload </a></li>-->
+                <!--							<li><a href="#"> Inline Editor </a></li>-->
+                <!--							<li><a href="#"> Multiple File Upload </a></li>-->
+                <!--						</ul>-->
+                <!--					</li>-->
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--						<a href="javascript:;" class="dcjq-parent">-->
+                <!--							<i class="fa fa-th"></i>-->
+                <!--							<span> Data Tables </span>-->
+                <!--							<span class="label label-inverse span-sidebar"> 5 </span>-->
+                <!--							<span class="dcjq-icon"></span>-->
+                <!--						</a>-->
+                <!--						<ul class="sub" style="overflow: hidden; display: none;">-->
+                <!--							<li><a href="#"> Basic Table </a></li>-->
+                <!--							<li><a href="#"> Responsive Table </a></li>-->
+                <!--							<li><a href="#"> Dynamic Table </a></li>-->
+                <!--							<li><a href="#"> Advanced Table </a></li>-->
+                <!--							<li><a href="#"> Editable Table </a></li>-->
+                <!--						</ul>-->
+                <!--					</li>-->
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--						<a href="javascript:;" class="dcjq-parent">-->
+                <!--							<i class=" fa fa-envelope"> </i>-->
+                <!--							<span>Mail </span>-->
+                <!--							<span class="label label-danger span-sidebar"> 2 </span>-->
+                <!--							<span class="dcjq-icon"></span>-->
+                <!--						</a>-->
+                <!--						<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--							<li><a href="#"> Inbox </a></li>-->
+                <!--							<li><a href="#"> Mail Details </a></li>-->
+                <!--						</ul>-->
+                <!--					</li>-->
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--						<a href="javascript:;" class="dcjq-parent">-->
+                <!--							<i class=" fa fa-bar-chart-o"> </i>-->
+                <!--							<span> Charts </span>-->
+                <!--							<span class="label label-warning span-sidebar"> 4 </span>-->
+                <!--							<span class="dcjq-icon"></span>-->
+                <!--						</a>-->
+                <!--						<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--							<li><a href="#"> Morris Chart </a></li>-->
+                <!--							<li><a href="#"> Chartjs Chart </a></li>-->
+                <!--							<li><a href="#"> Flot Charts </a></li>-->
+                <!--							<li><a href="#"> xChart </a></li>-->
+                <!--						</ul>-->
+                <!--					</li>-->
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--						<a href="javascript:;" class="dcjq-parent">-->
+                <!--							<i class="fa fa-shopping-cart"> </i>-->
+                <!--							<span> Product </span>-->
+                <!--							<span class="label label-success span-sidebar"> 2 </span>-->
+                <!--							<span class="dcjq-icon"></span></a>-->
+                <!--						<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--							<li><a href="#">List View </a></li>-->
+                <!--							<li><a href="#">Details View </a></li>-->
+                <!--						</ul>-->
+                <!--					</li>-->
+                <!--					<li>-->
+                <!--						<a href="#">-->
+                <!--							<i class="fa fa-map-marker"> </i> <span> Google Maps </span>-->
+                <!--						</a>-->
+                <!--					</li>-->
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--					    <a href="javascript:;" class="dcjq-parent">-->
+                <!--						    <i class="fa fa-glass"> </i>-->
+                <!--						    <span> Extra Pages </span>-->
+                <!--						    <span class="label label-primary span-sidebar"> 10 </span>-->
+                <!--							<span class="dcjq-icon"></span>-->
+                <!--						</a>-->
+                <!--						<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--							<li><a href="#"> Blank Page </a></li>-->
+                <!--							<li><a href="#"> Lock Screen </a></li>-->
+                <!--							<li><a href="#"> Profile </a></li>-->
+                <!--							<li><a href="#"> Invoice </a></li>-->
+                <!--							<li><a href="#"> Search Result </a></li>-->
+                <!--							<li><a href="#"> Pricing Table </a></li>-->
+                <!--							<li><a href="#"> FAQ </a></li>-->
+                <!--							<li class="active"><a href="#"> Timeline </a></li>-->
+                <!--							<li><a href="#"> 404 Error </a></li>-->
+                <!--							<li><a href="#"> 500 Error </a></li>-->
+                <!--						</ul>-->
+                <!--					</li>-->
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--						<a href="javascript:;" class="dcjq-parent">-->
+                <!--							<i class="fa fa-user"> </i>-->
+                <!--							<span> 人员组织角色管理 </span>-->
+                <!--							<span class="label label-success span-sidebar">6</span>-->
+                <!--							<span class="dcjq-icon"></span>-->
+                <!--						</a>-->
+                <!--						<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--							<li class="sub-menu dcjq-parent-li">-->
+                <!--								<a href="#" class="dcjq-parent"> 基础信息-->
+                <!--									<span class="label label-primary">3</span>-->
+                <!--									<span class="dcjq-icon"></span>-->
+                <!--								</a>-->
+                <!--								<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--									<li id="org_manage"><a href="/page?id=org_manage">组织管理 </a></li>-->
+                <!--									<li id="people_manage"><a href="/page?id=people_manage">人员管理 </a></li>-->
+                <!--									<li id="role_manage"><a href="/page?id=role_manage">角色管理 </a></li>-->
+                <!--								</ul>-->
+                <!--							</li>-->
+                <!--							<li class="sub-menu dcjq-parent-li">-->
+                <!--								<a href="#" class="dcjq-parent"> 关联管理 -->
+                <!--									<span class="label label-primary">3</span>-->
+                <!--									<span class="dcjq-icon"></span>-->
+                <!--								</a>-->
+                <!--								<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--									<li><a href="#">组织归属管理 </a></li>-->
+                <!--									<li><a href="#">人员组织管理 </a></li>-->
+                <!--									<li><a href="#">人员角色管理 </a></li>-->
+                <!--								</ul>-->
+                <!--							</li>-->
+                <!--							-->
+                <!--						</ul>-->
+                <!--					</li>-->
+                <!--					<li class="sub-menu dcjq-parent-li">-->
+                <!--						<a href="javascript:;" class="dcjq-parent">-->
+                <!--							<i class="fa fa-sitemap"> </i>-->
+                <!--							<span> Multi level Menu </span>-->
+                <!--							<span class="dcjq-icon"></span>-->
+                <!--						</a>-->
+                <!--						<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--							<li><a href="javascript:;"> Menu Item 1 </a></li>-->
+                <!--							<li class="sub-menu dcjq-parent-li">-->
+                <!--								<a href="#" class="dcjq-parent"> Menu Item 2 -->
+                <!--									<span class="label label-primary"> 1 </span>-->
+                <!--									<span class="dcjq-icon"></span>-->
+                <!--								</a>-->
+                <!--								<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--									<li><a href="javascript:;"> Item 2.1 </a></li>-->
+                <!--									<li class="sub-menu dcjq-parent-li">-->
+                <!--										<a href="javascript:;" class="dcjq-parent"> Menu Item 3-->
+                <!--											<span class="label label-primary"> 3 </span>-->
+                <!--											<span class="dcjq-icon"></span></a>-->
+                <!--										<ul class="sub" style="display: none; overflow: hidden;">-->
+                <!--											<li><a href="javascript:;"> Item 3.1 </a></li>-->
+                <!--											<li><a href="javascript:;"> Item 3.2 </a></li>-->
+                <!--											<li><a href="javascript:;"> Item 3.2 </a></li>-->
+                <!--										</ul>-->
+                <!--									</li>-->
+                <!--								</ul>-->
+                <!--							</li>-->
+                <!--						</ul>-->
+                <!--					</li>-->
+            </ul>
+        </div>
+    </aside>
+
+
+    <div id="main-content">
+        <div style="padding-top: 60px;">
+            <div layout:fragment="content"></div>
+        </div>
+    </div>
+    <footer class="site-footer footer" style="!important;margin-bottom: 10px;">
+        <div class="text-center">
+            2020 © dangkp by
+            <a href="mailto:dangkp@outlook.com" target="_blank"> dangkp@outlook.com </a>
+            <a href="#" class="go-top"> <i class="fa fa-angle-up"> </i></a>
+        </div>
+    </footer>
+
+</section>
+<!-- common js -->
+<script type="text/javascript" th:src="@{/asserts/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/bootstrap-table-zh-CN.min.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/canvas-nest.min.js}" color="0,0,255" opacity='0.5' zIndex="-2"
+        count="300"></script>
+<script type="text/javascript" th:src="@{/asserts/js/jquery.dcjqaccordion.2.7.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/jquery.scrollTo.min.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/jquery.nicescroll.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/respond.min.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/common-scripts.js}"></script>
+<script type="text/javascript" th:src="@{/asserts/js/toast.min.js}"></script>
+<!-- customer js -->
+<div layout:fragment="pageJavascript"></div>
+
+</body>
+<script>
+    // top-center/bottom-left
+    // toastr.setPosition("top-left");
+    // toastr.message('Success Toast Message',"success",5000);
+    // toastr.message('Success Toast Message',"error",5000);
+    // toastr.message('Success Toast Message',"info",5000);
+    // toastr.message('Success Toast Message',"warning",5000);
+
+</script>
+</html>

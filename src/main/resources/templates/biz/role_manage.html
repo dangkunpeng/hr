@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/layout}">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>角色管理</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="container-fluid" >
+			<div class="row">
+				<div class="table-box">
+					<div id="toolbar">
+						<div class="btn-group" role="group" aria-label="...">
+							<button id="insert" onclick="insertRow()" class="btn btn-primary">
+								<span class="glyphicon glyphicon-plus"></span>
+								新增
+							</button>
+							<button id="del" onclick="delRow()" class="btn btn-warning disabled">
+								<span class="glyphicon glyphicon-trash"></span>
+								删除
+							</button>
+						</div>
+					</div>
+					<!-- table -->
+					<table id="table" class="table table-bordered table-condensed" style="font-size:22px;"></table>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="myConfirm" tabindex="-1" role="dialog" aria-labelledby="confirmLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="confirmLabel">
+						提示框
+					</h4>
+				</div>
+				<div class="modal-body">
+					操作不可恢复！确认继续吗？
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary">确认</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+</body>
+	<div layout:fragment="pageJavascript" th:unless="${errorMessage}">
+		<script type="text/javascript" th:src="@{/biz/role_manage.js}"></script>
+	</div>
+</html>

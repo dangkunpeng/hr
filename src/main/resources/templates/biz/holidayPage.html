@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Do you know holiday?</title>
+    <style type="text/css">
+        .selectCell {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="container-fluid">
+        <div class="table-box" style="margin: 20px;">
+            <div id="toolbar">
+				<form id="queryForm" class="form-group form-inline" action="#">
+					<input name="slfYear" class="form-control" placeholder="年"/>
+					<input name="slfMonth" class="form-control" placeholder="月"/>
+					<input name="slfWeek" class="form-control" placeholder="周"/>
+					<input name="slfDate" class="form-control" placeholder="年月日（yyyyMMdd）"/>
+                    <div class="btn-group">
+                        <button type="button" onclick="clearForm()" class="btn btn-warning">重置</button>
+                        <button type="button" onclick="refreshTable()" class="btn btn-primary">查询</button>
+                    </div>
+
+				</form>
+
+            </div>
+            <table id="holiday"
+                   data-row-style="grRowStyle"
+                   data-classes="table table-condensed table-hover  table-bordered"
+                   data-striped="true">
+            </table>
+        </div>
+    </div>
+</div>
+<!-- 模态框（Modal） -->
+</body>
+<div layout:fragment="pageJavascript" th:unless="${errorMessage}">
+    <script type="text/javascript" th:src="@{/biz/holidayPage.js}"></script>
+</div>
+
+
+</html>
