@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>项目</title>
+    <style type="text/css">
+        .selectCell {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="container-fluid">
+        <div class="table-box" style="margin: 20px;">
+            <div id="toolbar"></div>
+            <div class="col-md-10 col-md-offset-1">
+                <table id="projectList" data-row-style="grRowStyle" data-striped="true"
+                       data-classes="table  table-hover table-bordered table-striped"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<div layout:fragment="pageJavascript" th:unless="${errorMessage}">
+    <script type="text/javascript" th:src="@{/hr/project.js}"></script>
+</div>
+
+
+</html>

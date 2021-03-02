@@ -38,4 +38,9 @@ public class HrControllor {
         model.put("theme", "helloworld");
         return "hr/people";
     }
+    @RequestMapping("/project/init")
+    public String projectInit(ModelMap model) {
+        model.put("theme", "helloworld");
+        return "hr/project";
+    }
 }

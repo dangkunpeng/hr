@@ -50,7 +50,7 @@ public class HrPeopleSvcImpl implements HrPeopleSvc {
     @Override
     public Result queryALl(HrPeople hrPeople) {
         Example<HrPeople> example = Example.of(hrPeople);
-        Sort sort = Sort.by(Sort.Order.asc("status"), Sort.Order.asc("peopleEid"));
+        Sort sort = Sort.by(Sort.Order.desc("status"), Sort.Order.asc("peopleEid"));
         List<HrPeople> peopleList = this.hrPeopleRepo.findAll(example, sort);
         Sort projectSort = Sort.by(Sort.Order.desc("projectId"));
         List<HrProject> projectList = this.hrProjectRepo.findAll(projectSort);

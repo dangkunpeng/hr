@@ -16,17 +16,16 @@
 <body>
 <div layout:fragment="content">
     <div class="container-fluid">
-        <div class="table-box" style="margin: 20px;">
+        <div class="table-box">
             <div id="toolbar">
-                <button type="button" data-toggle="modal" data-target="#myPeople" onclick="openPeopleDetail()" class="btn btn-primary">
+                <button type="button" data-toggle="modal" data-target="#myPeople" onclick="openPeopleDetail()"
+                        class="btn btn-primary">
                     <span class="glyphicon glyphicon-plus"></span>新增人员
                 </button>
             </div>
             <div class="col-md-10 col-md-offset-1">
-
-                <table id="peopleList" data-row-style="grRowStyle"
-                       data-classes="table table-condensed table-hover table-bordered"
-                       data-striped="true"></table>
+                <table id="peopleList" data-row-style="grRowStyle" data-striped="true"
+                       data-classes="table table-hover table-bordered table-striped"></table>
             </div>
         </div>
     </div>
@@ -40,24 +39,32 @@
                 </div>
                 <div class="modal-body">
                     <form id="peopleForm" class="form-group" action="#">
-                        <input name="peopleEid" class="form-control" placeholder="eid"/>
-                        <hr>
-                        <input name="peopleName" class="form-control" placeholder="name"/>
-                        <hr>
-                        <input name="peopleGroupEid" class="form-control" placeholder="group eid"/>
+                        <div class="form-group">
+                            <label for="peopleEid">EID</label>
+                            <input id="peopleEid" name="peopleEid" class="form-control" placeholder="EID"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="peopleName">姓名</label>
+                            <input id="peopleName" name="peopleName" class="form-control" placeholder="姓名"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="peopleGroupEid">所属分组</label>
+                            <input id="peopleGroupEid" name="peopleGroupEid" class="form-control" placeholder="所属分组"/>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="savePeople()">确认</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="savePeople()">确认
+                    </button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
     <!-- 模态框（Modal） -->
-
     <!-- 模态框（Modal） -->
-    <div class="modal fade" id="myProject" tabindex="-1" role="dialog" aria-labelledby="confirmLabel" aria-hidden="true">
+    <div class="modal fade" id="myProject" tabindex="-1" role="dialog" aria-labelledby="confirmLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -66,31 +73,42 @@
                 </div>
                 <div class="modal-body">
                     <form id="projectForm" class="form-group" action="#">
-                        <input name="peopleEid" class="form-control" placeholder="eid" disabled="disabled" id="projectEid"/>
-                        <hr>
-                        <input name="projectName" class="form-control" placeholder="Project Name"/>
-                        <hr>
-                        <input name="wbsCode" class="form-control" placeholder="WBS Code"/>
-                        <hr>
-                        <input name="tePeriod" class="form-control" placeholder="TE Period"/>
-                        <hr>
-                        <input name="projectGroupEid" class="form-control" placeholder="Project Group Eid"/>
+                        <div class="form-group">
+                            <label for="projectEid">EID</label>
+                            <input id="projectEid" name="peopleEid" class="form-control" disabled="disabled"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectName">项目名</label>
+                            <input id="projectName" name="projectName" class="form-control" placeholder="项目名"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="wbsCode">WBS</label>
+                            <input id="wbsCode" name="wbsCode" class="form-control" placeholder="WBS Code"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="tePeriod">TE Period</label>
+                            <input id="tePeriod" name="tePeriod" class="form-control" placeholder="TE Period"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectGroupEid">项目所属人</label>
+                            <input id="projectGroupEid" name="projectGroupEid" class="form-control"
+                                   placeholder="项目所属人"/>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveProject()">确认</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveProject()">确认
+                    </button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
     <!-- 模态框（Modal） -->
 </div>
-
 </body>
 <div layout:fragment="pageJavascript" th:unless="${errorMessage}">
     <script type="text/javascript" th:src="@{/hr/people.js}"></script>
 </div>
-
-
 </html>
