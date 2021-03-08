@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Utils {
 
     private static SimpleDateFormat SDF_YYYYMMDD = new SimpleDateFormat("yyyy-MM-dd");
-    private static SimpleDateFormat SDF_YMD_HMS = new SimpleDateFormat("yyyyMMdd");
+    private static SimpleDateFormat SDF_YMD_HMS = new SimpleDateFormat("yyyyMMddHHmm");
     // 计数器
     private static HashMap<String, Integer> COUNT_MAP = Maps.newHashMap();
     // 计数器补位长度
@@ -45,5 +45,9 @@ public class Utils {
         COUNT_MAP.put(result.toString(), counter);
         result.append(StringUtils.leftPad(String.valueOf(counter), COUNT_LENGTH, PAD_CHAR));
         return result.toString();
+    }
+
+    public static void main(String[] args) {
+        log.info("key = {}" , getKey());
     }
 }
